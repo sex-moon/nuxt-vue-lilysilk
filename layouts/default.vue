@@ -20,13 +20,13 @@
 				</div>
 			</div>
 
-			<div><HeadMenu></HeadMenu></div>
+			<MainMenu></MainMenu>
 		</header>
 
 		<Nuxt></Nuxt>
 
 		<footer>
-			<TootPosition></TootPosition>
+			<!-- <TootPosition></TootPosition> -->
 		</footer>
 	</div>
 </template>
@@ -39,10 +39,10 @@ export default {
 		}
 	},
 	components: {
-		TopBannar: ()=>import('~/components/head/topbanner'),
-		HeadCountry: () => import("~/components/head/country"),
-		HeadMenu: () => import("~/components/head/head-menu/au"),
-		TootPosition: ()=>import('~/components/footer/footPosition')
+		TopBannar: ()=>import('~/layouts/head/topbanner'),
+		HeadCountry: () => import("~/layouts/head/country"),
+		MainMenu: () => import("~/layouts/head/main_menu"),
+		// TootPosition: ()=>import('~/layouts/footer/footPosition')
 	}
 }
 </script>

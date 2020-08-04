@@ -131,7 +131,7 @@ export default {
 		};
 	},
 	components: {
-		FootSuccess: () => import("~/components/footer/footSuccess.vue"),
+		// FootSuccess: () => import("~/components/footer/footSuccess.vue"),
 	}
 };
 </script>
