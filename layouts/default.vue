@@ -26,7 +26,7 @@
 		<Nuxt></Nuxt>
 
 		<footer>
-			<!-- <TootPosition></TootPosition> -->
+			<FooterMenu></FooterMenu>
 		</footer>
 	</div>
 </template>
@@ -42,7 +42,7 @@ export default {
 		TopBannar: ()=>import('~/layouts/head/topbanner'),
 		HeadCountry: () => import("~/layouts/head/country"),
 		MainMenu: () => import("~/layouts/head/main_menu"),
-		// TootPosition: ()=>import('~/layouts/footer/footPosition')
+		FooterMenu: ()=>import('~/layouts/footer/footer-menu')
 	}
 }
 </script>
