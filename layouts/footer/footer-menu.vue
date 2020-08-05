@@ -19,7 +19,7 @@
 		<div class="footcontent">
       <ul class="footcontentall">
         <li v-for="(footmenu, index) in footmenus" :key="index" class="footcontentone">
-          <p>{{footmenu.title}}&nbsp;&nbsp;</p>
+          <p class="title">{{footmenu.title}}&nbsp;&nbsp;<span class="fa fa-angle-down fr"></span></p>
           <p v-for="(footlist, index) in footmenu.content" :key="index" class="content">
               {{footlist.name}}
           </p>
@@ -280,7 +280,6 @@ export default {
 
   .footcontent .footcontentall .footcontentone .title span {
     display: inline-block;
-    float: right;
     font-size: 20px;
   }
 
