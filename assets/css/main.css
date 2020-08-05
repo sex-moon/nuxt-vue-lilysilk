@@ -15,8 +15,16 @@ a{
 a:hover{
     text-decoration: none;
 }
+img {
+    max-width: 100%;
+}
 
-
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
 .tl {
     text-align: left;
 }

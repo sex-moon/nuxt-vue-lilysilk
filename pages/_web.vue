@@ -1,5 +1,8 @@
 <template>
-    <div>站点{{name}}</div>
+    <div>
+        站点{{name}}
+        <div><img src="~/static/homeslide2-us.jpg"></div>
+    </div>
 </template>
 
 <script>

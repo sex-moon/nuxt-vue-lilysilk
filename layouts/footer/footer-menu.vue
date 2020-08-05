@@ -9,98 +9,64 @@
 					class="signupinput"
 					v-model="email"
 				/>
-				<button @click="submit">Sign Up</button>
+				<button>Sign Up</button>
 				<span class="ErrorPrompt" v-if="ErrorPrompt">{{tips}}</span>
 			</div>
 		</div>
 
-		<FootSuccess></FootSuccess>
+		<!-- <SubscribeSuccess></SubscribeSuccess> -->
 
 		<div class="footcontent">
-			<div class="footcontentall">
-			<div class="footcontentone">
-				<p class="title" @click="getOpenA()">
-				About LILYSILK 
-				<span :class="[selectnumber == 1 ? 'fa-angle-up':'fa-angle-down']"></span>
-				</p>
-				<p class="content" :class="[selectnumber == 1 ? 'selectaction' : '']"><nuxt-link to="/">Our Story</nuxt-link></p>
-				<p class="content" :class="[selectnumber == 1 ? 'selectaction' : '']"><nuxt-link to="/">Our Press</nuxt-link></p>
-				<p class="content" :class="[selectnumber == 1 ? 'selectaction' : '']"><nuxt-link to="/">Our Blog</nuxt-link></p>
-				<p class="content" :class="[selectnumber == 1 ? 'selectaction' : '']"><nuxt-link to="/">Our Donation</nuxt-link></p>
-			</div><div class="footcontentone">
-				<p class="title" @click="getOpenB()">
-				Customer Services
-				<span :class="[selectnumber == 2 ? 'fa-angle-up':'fa-angle-down']"></span>
-				</p>
-				<p class="content" :class="[selectnumber == 2 ? 'selectaction' : '']"><nuxt-link to="/">Contact us</nuxt-link></p>
-				<p class="content" :class="[selectnumber == 2 ? 'selectaction' : '']"><nuxt-link to="/">FAQs</nuxt-link></p>
-				<p class="content" :class="[selectnumber == 2 ? 'selectaction' : '']"><nuxt-link to="/">Shipping Information</nuxt-link></p>
-				<p class="content" :class="[selectnumber == 2 ? 'selectaction' : '']"><nuxt-link to="/">Returns & Exchanges</nuxt-link></p>
-				<p class="content" :class="[selectnumber == 2 ? 'selectaction' : '']"><nuxt-link to="/">Track Order Details</nuxt-link></p>
-				<p class="content" :class="[selectnumber == 2 ? 'selectaction' : '']"><nuxt-link to="/">Request an RMA</nuxt-link></p>
-			</div><div class="footcontentone">
-				<p class="title" @click="getOpenC()">
-				Featured Program
-				<span :class="[selectnumber == 3 ? 'fa-angle-up':'fa-angle-down']"></span>
-				</p>
-				<p class="content" :class="[selectnumber == 3 ? 'selectaction' : '']"><nuxt-link to="/">Affiliate Program</nuxt-link></p>
-				<p class="content" :class="[selectnumber == 3 ? 'selectaction' : '']"><nuxt-link to="/">LILYSILK Reward Points</nuxt-link></p>
-				<p class="content" :class="[selectnumber == 3 ? 'selectaction' : '']"><nuxt-link to="/">LILYSILK VIP MEMBERSHIP</nuxt-link></p>
-				<p class="content" :class="[selectnumber == 3 ? 'selectaction' : '']"><nuxt-link to="/">LILYSTAR Program</nuxt-link></p>
-				<p class="content" :class="[selectnumber == 3 ? 'selectaction' : '']"><nuxt-link to="/">Give $20, Get $20</nuxt-link></p>
-			</div><div class="footcontentone">
-				<p class="title" @click="getOpenD()">
-				Silk Guide 
-				<span :class="[selectnumber == 4 ? 'fa-angle-up':'fa-angle-down']"></span>
-				</p>
-				<p class="content" :class="[selectnumber == 4 ? 'selectaction' : '']"><nuxt-link to="/">Silk Care</nuxt-link></p>
-				<p class="content" :class="[selectnumber == 4 ? 'selectaction' : '']"><nuxt-link to="/">Satin vs Silk</nuxt-link></p>
-				<p class="content" :class="[selectnumber == 4 ? 'selectaction' : '']"><nuxt-link to="/">What's Momme Count</nuxt-link></p>
-				<p class="content" :class="[selectnumber == 4 ? 'selectaction' : '']"><nuxt-link to="/">Charmeuse vs Mulberry Silk</nuxt-link></p>
-				<p class="content" :class="[selectnumber == 4 ? 'selectaction' : '']"><nuxt-link to="/">Cotton vs Silk</nuxt-link></p>
-			</div><div class="footcontentone footcontentone01">
-				<p class="title">Find Us On</p>
-				<p class="snslist">
-				<nuxt-link to="/"><span class="fa fa-twitter"></span></nuxt-link>
-				<nuxt-link to="/"><span class="fa fa-facebook"></span></nuxt-link>
-				<nuxt-link to="/"><span class="fa fa-youtube"></span></nuxt-link>
-				<nuxt-link to="/"><span class="fa fa-instagram"></span></nuxt-link>
-				<nuxt-link to="/"><span class="fa fa-pinterest"></span></nuxt-link>
-				</p>
-				<p class="telephone">
-				<span class="fa fa-phone"></span> PHONE：909-861-1680
-				</p>
-				<p class="telephonetime">
-				9:00am~5:00pm PST (Monday to Friday)
-				</p>
-			</div>
-			</div>
+      <ul class="footcontentall">
+        <li v-for="(footmenu, index) in footmenus" :key="index" class="footcontentone">
+          <p>{{footmenu.title}}&nbsp;&nbsp;</p>
+          <p v-for="(footlist, index) in footmenu.content" :key="index" class="content">
+              {{footlist.name}}
+          </p>
+        </li>
+          <div class="footcontentone footcontentone01">
+            <p class="title">Find Us On</p>
+            <p class="snslist">
+              <nuxt-link to="/"><span class="fa fa-twitter"></span></nuxt-link>
+              <nuxt-link to="/"><span class="fa fa-facebook"></span></nuxt-link>
+              <nuxt-link to="/"><span class="fa fa-youtube"></span></nuxt-link>
+              <nuxt-link to="/"><span class="fa fa-instagram"></span></nuxt-link>
+              <nuxt-link to="/"><span class="fa fa-pinterest"></span></nuxt-link>
+            </p>
+            <p class="telephone">
+              <span class="fa fa-phone"></span> PHONE：909-861-1680
+            </p>
+            <p class="telephonetime">
+              9:00am~5:00pm PST (Monday to Friday)
+            </p>
+          </div>
+      </ul>
 		</div>
 
 		<div class="footcontentoneline">
 			<img
 			class="paymentimg"
-			src="https://www.lilysilk.com/images/workImages/common/payment.png"
+			src="~/static/foot/payment.png"
 			alt="Payment methods"
 			title="Sample image with payment methods"
 			/>
 
-			<div class="fr">
+			<div class="webgood fr">
 			<nuxt-link to="/">
 				<img
-				src="https://www.lilysilk.com/images/workImages/common/webgood1.png"
+				src="~/static/foot/webgood1.png"
 				/>
 			</nuxt-link>
 
 			<nuxt-link to="/">
 				<img
-				src="https://www.lilysilk.com/images/workImages/common/webgood2.png"
+				src="~/static/foot/webgood2.png"
 				/>
 			</nuxt-link>
 
 			<nuxt-link to="/">
 				<img
-				src="https://www.lilysilk.com/images/workImages/common/webgood3.png"
+				src="~/static/foot/webgood3.png"
 				/>
 			</nuxt-link>
 			</div>
@@ -116,25 +82,31 @@
 		</div>
 	</div>
 </template>
+
 <script>
+import {footMenus} from '~/middleware/data.js'
 export default {
 	data() {
 		return {
-			country: this.$route.params.country,
 			ErrorPrompt: false,
 			email: "",
 			tips: "",
 			successLogon: false,
 			selectnumber: 0,
 			// 随机生成游客ID
-			touristId: null
-		};
-	},
+      touristId: null,
+      footmenus: []
+    }
+  },
 	components: {
-		// FootSuccess: () => import("~/components/footer/footSuccess.vue"),
-	}
+		// SubscribeSuccess: () => import("~/components/footer/subscribe-success.vue"),
+  },
+  created() {
+    this.footmenus = footMenus;
+  },
 };
 </script>
+
 <style scoped>
 .footsignup-right{
    display:inline-block;
@@ -179,6 +151,7 @@ export default {
 }
 .footcontent .footcontentall .footcontentone {
   display: inline-block;
+  color: #eee;
   width: calc(20% - 10px);
   vertical-align: top;
   margin-right: 10px;
@@ -186,6 +159,7 @@ export default {
 
 .footcontent .footcontentall .footcontentone01 {
   text-align: center;
+  margin-right: 0;
 }
 .footcontent .footcontentall .footcontentone01 .telephone {
   color: #eee;
@@ -216,6 +190,7 @@ export default {
 }
 .footcontent .footcontentall .footcontentone .snslist a {
   text-decoration: none;
+  color: #fff;
 }
 .footcontent .footcontentall .footcontentone .content {
   font-size: 14px;
@@ -255,11 +230,10 @@ export default {
 .footcontentbottom .span02 a:hover{color:#fff;}
 @media screen and (min-width: 769px) {
   .footcontentoneline .paymentimg {
-    height: 30px;
-	width: auto;
-    padding: 10px 0;
+    height: 50px;
+	  width: auto;
   }
-  .fr img {
+  .webgood img {
     height: 50px;
 	width: auto;
   }
@@ -285,7 +259,7 @@ export default {
     padding: 10px 0;
     width: 100%;
   }
-   .fr img {
+   .webgood img {
     width: 30%;
   }
   .footsignup span {
@@ -325,7 +299,7 @@ export default {
   .footcontentoneline {
     text-align: center;
   }
-  .fr {
+  .footcontentoneline .webgood {
     float: none;
     display: inline-block;
     text-align: center;

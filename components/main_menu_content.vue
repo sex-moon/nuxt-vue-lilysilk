@@ -1,7 +1,7 @@
 <template>
     <div class="menu-content">
         <ul>
-            <li v-for="(column, column_index) in menuData.columns" :key="column_index" class="p-2">
+            <li v-for="(column, column_index) in menuData.columns" :key="column_index" class="">
                 <div v-for="(row, row_index) in column" :key="row_index">
                     <span>{{row.name}}</span>
                 </div>
