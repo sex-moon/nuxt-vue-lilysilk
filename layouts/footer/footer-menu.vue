@@ -46,7 +46,7 @@
 		<div class="footcontentoneline">
 			<img
 			class="paymentimg"
-			src="~/static/foot/payment.png"
+			src="~/static/images/foot/payment.png"
 			alt="Payment methods"
 			title="Sample image with payment methods"
 			/>
@@ -54,19 +54,19 @@
 			<div class="webgood fr">
 			<nuxt-link to="/">
 				<img
-				src="~/static/foot/webgood1.png"
+				src="~/static/images/foot/webgood1.png"
 				/>
 			</nuxt-link>
 
 			<nuxt-link to="/">
 				<img
-				src="~/static/foot/webgood2.png"
+				src="~/static/images/foot/webgood2.png"
 				/>
 			</nuxt-link>
 
 			<nuxt-link to="/">
 				<img
-				src="~/static/foot/webgood3.png"
+				src="~/static/images/foot/webgood3.png"
 				/>
 			</nuxt-link>
 			</div>
