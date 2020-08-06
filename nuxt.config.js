@@ -29,18 +29,19 @@ export default {
   ** Global CSS
   */
   css: [
-    '@/assets/css/main.css',
-    '@/assets/css/font-awesome-4.7.0/css/font-awesome.min.css'
+    '~/assets/css/main.css',
+    '~/assets/css/font-awesome-4.7.0/css/font-awesome.min.css',
+    // 'swiper/dist/css/swiper.css'
   ],
   /*
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    {src: '~plugins/bootstrap-vue'},
+    {src: '~/plugins/bootstrap-vue'},
     {src: '~/plugins/vuex-persistedstate.js', ssr: false},
-    {src: '~/plugins/vue-awesome-swiper.js',ssr: false},
-    {src: "~/plugins/vue-lazyload", ssr: false}
+    {src: '~/plugins/vue-lazyload', ssr: false},
+    {src: "@/plugins/vue-awesome-swiper.js", ssr: false }
   ],
   /*
   ** Auto import components

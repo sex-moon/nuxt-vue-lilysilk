@@ -1,51 +1,49 @@
 <template>
     <div class="main">
-        站1点
-        <div v-swiper:mySwiper="swiperOption" class="swiper-container">
+        <div v-swiper:mySwiper="swiperOption">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img class="swiper-img" src="https://www.lilysilk.com/images/1024/homeslide1-us.jpg"/>
-                </div>
-                <div class="swiper-slide">
-                    <img class="swiper-img" src="https://www.lilysilk.com/images/1024/homeslide2-us.jpg"/>
-                </div>
-                <div class="swiper-slide">
-                    <img class="swiper-img" src="https://www.lilysilk.com/images/1024/homeslide3-us.jpg"/>
+                <div class="swiper-slide" v-for="(item, index) of homeBanner" :key="index">
+                    <router-link :to="item.href">
+                        <img class="swiperImg" :src="'http://115.28.241.1/web/image/poster/'+item.img"/>
+                    </router-link>
                 </div>
             </div>
+
             <div class="swiper-pagination" slot="pagination"></div>
             <div class="custom-swiper-button-prev fa fa-angle-left" slot="button-prev"></div>
             <div class="custom-swiper-button-next fa fa-angle-right" slot="button-next"></div>
         </div>
 
-        <HomePage></HomePage>
+        <!-- <HomePage></HomePage> -->
 
     </div>
 </template>
 
 <script>
+import Qs from 'qs';
 
 export default {
+    async asyncData ({app}) {
+        const response = await app.$axios.post("/user/homeBanner", {web: "au"});
+        return {homeBanner: response.data};
+    },
     data(){
         return {
-            swiperOption:{
-                loop: true,
+            swiperOption: {
+                effect: "fade",
                 pagination: {
                     el: '.swiper-pagination',
-                    clickable:true,
+                    clickable: true
                 },
                 navigation: {
-                    nextButton: '.custom-swiper-button-next',
-                    prevButton: '.custom-swiper-button-prev',
-                },
+                    nextEl: '.custom-swiper-button-next',
+                    prevEl: '.custom-swiper-button-prev'
+                }
             }
         }
     },
     components: {
         HomePage: ()=>import('~/components/home/homepage'),
-    },
-    computed: {
-
     }
 }
 </script>

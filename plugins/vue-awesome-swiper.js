@@ -1,7 +1,5 @@
 import Vue from 'vue'
-import VueAwesomeSwiper from 'vue-awesome-swiper'
-import 'swiper/swiper-bundle.css'
+import VueAwesomeSwiper from 'vue-awesome-swiper/dist/ssr'
+import 'swiper/dist/css/swiper.css'
 
-export default () => {
-Vue.use(VueAwesomeSwiper,{css})
-}
+Vue.use(VueAwesomeSwiper)
