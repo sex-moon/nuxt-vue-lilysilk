@@ -64,7 +64,20 @@ export default {
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
-  axios: {},
+  axios: {
+    proxy: true,
+    prefix: '/api', // baseURL
+    credentials: true,
+  },
+  proxy: {
+    '/api/': {
+      target: 'http://vue.lilysilk.com/api/public/api', // 代理地址
+      changeOrigin: true,
+      pathRewrite: {
+        '^/api': ''
+      },
+    },
+  },
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
