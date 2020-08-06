@@ -39,7 +39,8 @@ export default {
   plugins: [
     {src: '~plugins/bootstrap-vue'},
     {src: '~/plugins/vuex-persistedstate.js', ssr: false},
-    {src: '~/plugins/vue-awesome-swiper.js'}
+    {src: '~/plugins/vue-awesome-swiper.js',ssr: false},
+    {src: "~/plugins/vue-lazyload", ssr: false}
   ],
   /*
   ** Auto import components
