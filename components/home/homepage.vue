@@ -83,7 +83,7 @@
 			<p class="subtitle">Check out our on sale hot categories</p>
 		</div>
 		<div class="onelayer pc">
-			<div class="collections-one">
+			<div class="collections-one" style="background-image:url('images/home/homeclothing-ca.png');">
 				<div class="oneblock">
 					<img class="mouse" src="~/static/images/home/mouse.gif">
 					<img src="~/static/images/home/homecollection1.webp">
@@ -97,7 +97,7 @@
 			</div>
 		</div>
 		<div class="onelayer pc">
-			<div class="collections-two">
+			<div class="collections-two"  style="background-image:url('images/home/homebedding-ca.png');">
 				<div class="collections">
 					<div class="oneblock">
 						<img class="mouse" src="~/static/images/home/mouse.gif">
@@ -116,15 +116,15 @@
 		<div class="onelayer relation_mb bottom">
 			<div class="fourbox">
 			<ul class="item-list padding0">
-				<!-- <li class="item items"  style="background-image:url('images/home/homebottom1.webp')"> -->
+				<li class="item items"  style="background-image:url('images/home/homebottom1.webp')">
 				Silk Knitted >
-				<!-- </li><li class="item items"  style="background-image:url('images/home/homebottom2.webp');"> -->
+				</li><li class="item items"  style="background-image:url('images/home/homebottom2.webp');">
 				Cashmere >
-				<!-- </li><li class="item items"  style="background-image:url('images/home/homebottom3.webp');"> -->
+				</li><li class="item items"  style="background-image:url('images/home/homebottom3.webp');">
 				Travel with Silk >
-				<!-- </li><li class="item items"  style="background-image:url('images/home/homebottom4.webp');"> -->
+				</li><li class="item items"  style="background-image:url('images/home/homebottom4.webp');">
 				Little Black Dresses >
-				<!-- </li> -->
+				</li>
 			</ul>
 			</div>
 		</div>
@@ -340,7 +340,6 @@ export default {
   background-size: 100%;
   background-repeat: no-repeat;
   padding: 6% 0 5% 0;
-  /* background-image: url("images/home/homeclothing-ca.png"); */
 }
 .collections-one .oneblock {
   position: relative;
@@ -366,7 +365,6 @@ export default {
   background-size: 100%;
   padding: 5% 0 10% 0;
   background-repeat: no-repeat;
-  /* background-image: url("images/home/homebedding-ca.png"); */
   text-align: left;
 }
 .collections-two .collections {
