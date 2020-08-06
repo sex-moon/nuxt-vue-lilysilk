@@ -13,6 +13,7 @@ const axios = Axios.create({
 // 请求拦截器
 axios.interceptors.request.use(
     config => {
+        console.log("axios request");
         // 在发送请求之前需要的操作
         return config;
     },
@@ -27,6 +28,7 @@ axios.interceptors.response.use(
     // 如果返回的状态码为200，说明接口请求成功，可以正常拿到数据
     // 否则的话抛出错误
     (res) => {
+        console.log("axios response");
         if(res.status === 200) {
             Promise.resolve(res)
         } else {

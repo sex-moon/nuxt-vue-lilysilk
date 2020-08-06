@@ -1,10 +1,16 @@
 <template>
     <div class="main">
-        站点{{name}}
+        站1点
         <div v-swiper:mySwiper="swiperOption" class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" v-for="(item, index) of carouselBanner" :key="index">
+                <div class="swiper-slide">
                     <img class="swiper-img" src="https://www.lilysilk.com/images/1024/homeslide1-us.jpg"/>
+                </div>
+                <div class="swiper-slide">
+                    <img class="swiper-img" src="https://www.lilysilk.com/images/1024/homeslide2-us.jpg"/>
+                </div>
+                <div class="swiper-slide">
+                    <img class="swiper-img" src="https://www.lilysilk.com/images/1024/homeslide3-us.jpg"/>
                 </div>
             </div>
             <div class="swiper-pagination" slot="pagination"></div>
@@ -18,7 +24,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
 
 export default {
     data(){
@@ -33,15 +38,14 @@ export default {
                     nextButton: '.custom-swiper-button-next',
                     prevButton: '.custom-swiper-button-prev',
                 },
-            },
-            carouselBanner: {}
+            }
         }
     },
     components: {
         HomePage: ()=>import('~/components/home/homepage'),
     },
     computed: {
-        ...mapState("category", ["name"])
+
     }
 }
 </script>
