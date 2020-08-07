@@ -1,12 +1,13 @@
 <template>
     <div class="main">
+        站点AAAAAAAUUUUUUU
         <div v-swiper:mySwiper="swiperOption">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" v-for="(item, index) of homeBanner" :key="index">
+                <!-- <div class="swiper-slide" v-for="(item, index) of homeBanner" :key="index">
                     <router-link :to="item.href">
                         <img class="swiperImg" :src="'http://115.28.241.1/web/image/poster/'+item.img"/>
                     </router-link>
-                </div>
+                </div> -->
             </div>
 
             <div class="swiper-pagination" slot="pagination"></div>
@@ -23,10 +24,10 @@
 import Qs from 'qs';
 
 export default {
-    async asyncData ({app}) {
-        const response = await app.$axios.post("/user/homeBanner", {web: "au"});
-        return {homeBanner: response.data};
-    },
+    // async asyncData ({app}) {
+    //     const response = await app.$axios.post("/user/homeBanner", {web: "au"});
+    //     return {homeBanner: response.data};
+    // },
     data(){
         return {
             swiperOption: {
@@ -43,7 +44,7 @@ export default {
         }
     },
     components: {
-        HomePage: ()=>import('~/components/home/homepage'),
+        HomePage: ()=>import('~/layouts/home/home'),
     }
 }
 </script>
