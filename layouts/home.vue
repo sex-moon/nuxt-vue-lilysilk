@@ -50,7 +50,7 @@
 			</div>
 
 			<div class="onelayer pc">
-				<div class="categories-window" @mouseover="mouseOver" @mouseleave="mouseLeave" ref="categoriesWidth">
+				<div class="categories-window" ref="categoriesWidth">
 						<div class="arrow-box-left">
 							<div class="owl-prev" v-show="arrow"></div>
 						</div>
