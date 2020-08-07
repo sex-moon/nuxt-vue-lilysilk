@@ -2,20 +2,22 @@
     <div>
         <HomeCarousel></HomeCarousel>
 
-        <!-- <HomePage></HomePage> -->
+        <HomePage></HomePage>
+
     </div>
 </template>
 
 <script>
+import Qs from 'qs';
+
 export default {
-    // async asyncData ({app}) {
-    //     const response = await app.$axios.$get("test/1");
-    //     console.log(response.data);
-    //     // return {homeBanner: response.data};
-    // },
+    async asyncData ({app}) {
+        // const response = await app.$axios.post("/user/homeBanner", {web: "au"});
+        // return {homeBanner: response.data};
+    },
     components: {
         HomeCarousel: ()=>import('~/components/common/carousel'),
-        HomePage: ()=>import('~/components/home/homepage')
+        HomePage: ()=>import('~/layouts/home.vue')
     }
 }
 </script>

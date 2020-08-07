@@ -1,106 +1,21 @@
 <template>
 	<div class="all">
-		<div class="content mb">
-			<div class="onelayer">
-				<nuxt-link to="/" class="one-thirdblock">
-					<img src="https://www.lilysilk.com/images/newhome/mbcategory1a-ca.jpg">
-					<span class="text">Pillowcase</span>
-				</nuxt-link><nuxt-link to="/" class="one-thirdblock">
-					<img src="https://www.lilysilk.com/images/newhome/mbcategory1b-ca.jpg">
-					<span class="text">Women Clothing</span>
-				</nuxt-link><nuxt-link to="/" class="one-thirdblock">
-					<img src="https://www.lilysilk.com/images/newhome/mbcategory1c-ca.jpg">
-					<span class="text">For Men</span>
-				</nuxt-link><nuxt-link to="/" class="one-thirdblock">
-					<img src="https://www.lilysilk.com/images/newhome/mbcategory2a-ca.jpg">
-					<span class="text">Lingerie</span>
-				</nuxt-link><nuxt-link to="/" class="one-thirdblock">
-					<img src="https://www.lilysilk.com/images/newhome/mbcategory2b-ca.jpg">
-					<span class="text">Shirt &amp; Blouse</span>
-				</nuxt-link><nuxt-link to="/" class="one-thirdblock">
-					<img src="https://www.lilysilk.com/images/newhome/mbcategory2c-ca.jpg">
-					<span class="text">Nightwear</span>
-				</nuxt-link><nuxt-link to="/" class="one-thirdblock">
-					<img src="https://www.lilysilk.com/images/newhome/mbcategory3a-ca.jpg">
-					<span class="text">Accessories</span>
-				</nuxt-link><nuxt-link to="/" class="one-thirdblock">
-					<img src="https://www.lilysilk.com/images/newhome/mbcategory3b-ca.jpg">
-					<span class="text marginleft">Pillow &amp; Duvet</span>
-				</nuxt-link><nuxt-link to="/" class="one-thirdblock">
-					<img src="https://www.lilysilk.com/images/newhome/mbcategory3c-ca.jpg">
-					<span class="text">Sheet</span>
-				</nuxt-link>
-			</div>
-
-			<div class="onelayer">
-				<nuxt-link to="/" ><img src="https://www.lilysilk.com/images/newhome/mbhomecollection1-ca.jpg"></nuxt-link>
-			</div>
-
-			<div class="onelayer">
-				<nuxt-link to="/" class="halfblock relation">
-					<img src="https://www.lilysilk.com/images/newhome/mbhomebanner1-ca.jpg">
-					<div class="textfixed pink">
-						<p class="bold">Clearance Sale</p>
-						<p>Up To 70% Off ></p>
-					</div>
-				</nuxt-link><nuxt-link to="/" class="halfblock relation">
-					<img src="https://www.lilysilk.com/images/newhome/mbhomebanner2-ca.jpg">
-					<div class="textfixed pink">
-						<p class="bold">New Arrivals</p>
-						<p>Buy 1 Get 1 40% Off ></p>
-					</div>
-				</nuxt-link>
-			</div>
-
-			<div class="onelayer">
-				<img src="https://www.lilysilk.com/images/newhome/mbhomecollection2-ca.jpg">
-			</div>
-
-			<div class="onelayer">
-				<nuxt-link to="/" class="halfblock relation">
-					<img src="https://www.lilysilk.com/images/newhome/mbhomecollection3-ca.jpg">
-					<div class="textfixed blue">
-						<p class="bold">Silk Pillowcases</p>
-						<p>Buy 1 Get 1 30% Off ></p>
-					</div>
-				</nuxt-link><nuxt-link to="/" class="halfblock relation">
-					<img src="https://www.lilysilk.com/images/newhome/mbhomecollection4-ca.jpg">
-					<div class="textfixed blue">
-						<p class="bold">Silk Bedding Sets</p>
-						<p>$10 Off Every $250 ></p>
-					</div>
-				</nuxt-link>
-			</div>
-
-			<div class="onelayer">
-				<img src="https://www.lilysilk.com/images/newhome/mbhomecollection5-ca.jpg">
-			</div>
-
-			<div class="onelayer">
-				<div class="border">
-				<img src="https://www.lilysilk.com/images/newhome/mbhomesmallbanner1-ca.jpg">
-					<img src="https://www.lilysilk.com/images/newhome/mbhomesmallbanner3-ca.jpg">
-					<img src="https://www.lilysilk.com/images/newhome/mbhomesmallbanner4-ca.jpg">
-				</div>
-			</div>
-		</div>
-
 		<div class="content">
 			<div class="onelayer pc">
 				<div class="halfblock">
-					<img src="https://www.lilysilk.com/images/newhome/homebanner1-ca.jpg">
+					<img src="~/static/images/home/homebanner1-au.jpg">
 				</div><div class="halfblock">
-					<img src="https://www.lilysilk.com/images/newhome/homebanner2-ca.jpg">
+					<img src="~/static/images/home/homebanner2-au.jpg">
 				</div>
 			</div>
 
 			<div class="onelayer pc">
 				<div class="one-thirdblock">
-					<img src="https://www.lilysilk.com/images/newhome/homesmallbanner1-ca.png">
+					<img src="~/static/images/home/homesmallbanner1-au.webp">
 				</div><div class="one-thirdblock">
-					<img src="https://www.lilysilk.com/images/newhome/homesmallbanner2-ca.png">
+					<img src="~/static/images/home/homesmallbanner2-au.webp">
 				</div><div class="one-thirdblock">
-					<img src="https://www.lilysilk.com/images/newhome/homesmallbanner3-ca.png">
+					<img src="~/static/images/home/homesmallbanner3-au.webp">
 				</div>
 			</div>
 
@@ -113,23 +28,23 @@
 				<div v-show="day">
 					<div class="half-left">
 						Day time
-						<img src="https://www.lilysilk.com/images/newhome/day.png">
+						<img src="~/static/images/home/day.webp">
 					</div>
 					<div class="arrow-box">
-						<img class="smallimg" src="https://www.lilysilk.com/images/newhome/night.png">
-						<img class="arrow-on" src="https://www.lilysilk.com/images/newhome/left1.png">
-						<img class="arrow-off" src="https://www.lilysilk.com/images/newhome/right0.png">              
+						<img class="smallimg" src="~/static/images/home/night.webp">
+						<img class="arrow-on" src="~/static/images/home/left1.webp">
+						<img class="arrow-off" src="~/static/images/home/right0.webp">              
 					</div>
 				</div>
 				<div v-show="night">
 					<div class="half-left">
 						Night time
-						<img src="https://www.lilysilk.com/images/newhome/night.png">
+						<img src="~/static/images/home/night.webp">
 					</div>
 					<div class="arrow-box">
-						<img class="arrow-off" src="https://www.lilysilk.com/images/newhome/left0.png">
-						<img class="arrow-on" src="https://www.lilysilk.com/images/newhome/right1.png">
-						<img class="smallimg" src="https://www.lilysilk.com/images/newhome/day.png">
+						<img class="arrow-off" src="~/static/images/home/left0.webp">
+						<img class="arrow-on" src="~/static/images/home/right1.webp">
+						<img class="smallimg" src="~/static/images/home/day.webp">
 					</div>
 				</div>
 			</div>
@@ -144,22 +59,22 @@
 						</div>
 					<div class="categories-list" :style="{left:isWidth + 'px'}">
 						<li>
-							<img src="https://www.lilysilk.com/images/newhome/homenightbanner1-ca.jpg">
+							<img src="~/static/images/home/homenightbanner1-au.jpg">
 							<p class="onelabel">Facial Beauty<br> Silk Pillowcases ></p> 
 						</li><li>
-							<img src="https://www.lilysilk.com/images/newhome/homenightbanner2-ca.jpg">
+							<img src="~/static/images/home/homenightbanner2-au.jpg">
 							<p class="onelabel">Ultimate Luxury<br> Silk Pajamas For Women ></p> 
 						</li><li>
-							<img src="https://www.lilysilk.com/images/newhome/homenightbanner3-ca.jpg">
+							<img src="~/static/images/home/homenightbanner3-au.jpg">
 							<p class="onelabel">Relax at Night<br> Silk Pajamas For Men ></p>
 						</li><li>
-							<img src="https://www.lilysilk.com/images/newhome/homedaybanner1-ca.jpg">
+							<img src="~/static/images/home/homedaybanner1-au.jpg">
 							<p class="onelabel">Office Lady<br> Basic Silk Shirts ></p> 
 						</li><li>  
-							<img src="https://www.lilysilk.com/images/newhome/homedaybanner2-ca.jpg">
+							<img src="~/static/images/home/homedaybanner2-au.jpg">
 							<p class="onelabel">Keep Elegant<br> Silk Dresses ></p>
 						</li><li>                          
-							<img src="https://www.lilysilk.com/images/newhome/homedaybanner3-ca.jpg">
+							<img src="~/static/images/home/homedaybanner3-au.jpg">
 							<p class="onelabel">Daily Wear<br>Cozy Silk Camisoles ></p>                          
 						</li>
 					</div>
@@ -172,35 +87,33 @@
 			</div>
 
 			<div class="onelayer pc">
-				<div class="collections-one">
+				<div class="collections-one" style="background-image:url('images/home/homeclothing-au.jpg')">
 					<div class="oneblock">
-						<img class="mouse" src="https://www.lilysilk.com/images/newhome/mouse.gif">
-						<img src="https://www.lilysilk.com/images/newhome/homecollection1-ca.png">
+						<img class="mouse" src="~/static/images/home/mouse.gif">
+						<img src="~/static/images/home/homecollection1-au.webp">
 					</div>
 					<div class="oneblock">
-						<img src="https://www.lilysilk.com/images/newhome/homecollection2-ca.png">
+						<img src="~/static/images/home/homecollection2-au.webp">
 					</div>
 					<div class="oneblock">
-						<img src="https://www.lilysilk.com/images/newhome/homecollection3-ca.png">
+						<img src="~/static/images/home/homecollection3-au.webp">
 					</div>
 				</div>
 			</div>
 
 			<div class="onelayer pc">
-				<div class="collections-two">
+				<div class="collections-two" style="background-image:url('images/home/homebedding-au.jpg')">
 					<div class="collections">
 						<div class="oneblock">
-								<img class="mouse" src="https://www.lilysilk.com/images/newhome/mouse.gif">
-									<img src="https://www.lilysilk.com/images/newhome/homecollection4-ca.png">
+								<img class="mouse" src="~/static/images/home/mouse.gif">
+									<img src="~/static/images/home/homecollection4-au.webp">
 						</div>
 					</div><div class="collections">
 						<div class="oneblock">
-							
-							<img src="https://www.lilysilk.com/images/newhome/homecollection5-ca.png">
+							<img src="~/static/images/home/homecollection5-au.webp">
 						</div>
 						<div class="oneblock">
-							
-							<img src="https://www.lilysilk.com/images/newhome/homecollection6-ca.png">
+							<img src="~/static/images/home/homecollection6-au.webp">
 						</div>
 					</div>
 				</div>
@@ -209,21 +122,21 @@
 			<div class="onelayer pc">
 				<p class="title">As seen in</p>
 				<div class="imgLayer">
-					<img src="https://www.lilysilk.com/media/home/defaultbottom01.jpg">
-					<img src="https://www.lilysilk.com/media/home/defaultbottom02.jpg">
+					<img src="~/static/images/home/defaultbottom01.webp">
+					<img src="~/static/images/home/defaultbottom02.webp">
 				</div>
 			</div>
 			
 			<div class="onelayer relation_mb bottom">
 				<div class="fourbox">
 					<ul class="item-list padding0">
-						<li class="item items"  style="background-image:url('https://www.lilysilk.com/images/newhome/homebottom1-ca.jpg');">
+						<li class="item items"  style="background-image:url('images/home/homebottom1-au.webp')">
 						Silk Knitted >
-						</li><li class="item items"  style="background-image:url('https://www.lilysilk.com/images/newhome/homebottom2-ca.jpg');">
+						</li><li class="item items"  style="background-image:url('images/home/homebottom2-au.webp')">
 						Cashmere >
-						</li><li class="item items"  style="background-image:url('https://www.lilysilk.com/images/newhome/homebottom3-ca.jpg');">
+						</li><li class="item items"  style="background-image:url('images/home/homebottom3-au.webp')">
 						Travel with Silk >
-						</li><li class="item items"  style="background-image:url('https://www.lilysilk.com/images/newhome/homebottom4-ca.jpg');">
+						</li><li class="item items"  style="background-image:url('images/home/homebottom4-au.webp')">
 						Little Black Dresses >
 						</li>
 					</ul>
@@ -439,7 +352,6 @@ export default {
   background-size: 100%;
   background-repeat: no-repeat;
   padding: 6% 0 5% 0;
-  background-image: url("https://www.lilysilk.com/images/newhome/homeclothing-ca.jpg");
 }
 .collections-one .oneblock {
   position: relative;
@@ -465,7 +377,6 @@ export default {
   background-size: 100%;
   padding: 5% 0 10% 0;
   background-repeat: no-repeat;
-  background-image: url("https://www.lilysilk.com/images/newhome/homebedding-ca.jpg");
   text-align: left;
 }
 .collections-two .collections {
