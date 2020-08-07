@@ -10,7 +10,7 @@ export default {
         console.log("asyncData", "product");
     },
     components: {
-        ProductInformation: ()=>import('~/layouts/product/product.vue')
+        ProductInformation: ()=>import('~/pages/product/product.vue')
     }
 }
 </script>

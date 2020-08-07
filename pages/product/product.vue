@@ -13,7 +13,7 @@ export default {
         return {}
     },
     components: {
-        ProductImage: ()=>import('~/layouts/product/product-image.vue')
+        ProductImage: ()=>import('~/pages/product/product-image.vue')
     }
 }
 </script>

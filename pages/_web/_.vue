@@ -19,7 +19,7 @@ export default {
     },
     components: {
         // Category: ()=>import('~/pages/category.vue'),
-        Product: ()=>import('~/pages/product.vue')
+        Product: ()=>import('~/pages/product/index.vue')
     }
 }
 </script>
