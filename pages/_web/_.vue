@@ -12,7 +12,7 @@ export default {
     //     const response = await app.$axios.get("/test/1");
     //     return {type: response.data};
     // },
-     data(){
+    data(){
         return {
             type:"product"
         }
