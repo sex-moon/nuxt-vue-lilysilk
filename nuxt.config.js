@@ -69,16 +69,16 @@ export default {
   axios: {
     proxy: true,
     prefix: '/api', // baseURL
-    credentials: true,
+    credentials: true
   },
   proxy: {
     '/api/': {
-      target: 'http://vue.lilysilk.com/api/public/api', // 代理地址
+      target: 'http://vue.lilysilk.com/api/public/api/', // 代理地址
       changeOrigin: true,
       pathRewrite: {
         '^/api': ''
       },
-    },
+    }
   },
   /*
   ** Build configuration
