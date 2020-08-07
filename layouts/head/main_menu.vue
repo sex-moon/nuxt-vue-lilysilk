@@ -12,6 +12,24 @@
     </nav>
 </template>
 
+<script>
+import menus from "~/static/data/main_menu.js";
+
+export default {
+    data() {
+        return {
+            menus: []
+        }
+    },
+    components: {
+        MenuContent: ()=>import('~/components/head/main_menu_content'),
+    },
+    created () {
+        this.menus = menus;
+    }
+}
+</script>
+
 <style scoped>
 .main-menu{
     display: flex;
@@ -36,27 +54,9 @@
     position: absolute;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 2;
 }
 .content:hover{
     display: block;
 }
 </style>
-
-<script>
-import menus from "~/static/data/main_menu.js";
-
-export default {
-    data() {
-        return {
-            menus: []
-        }
-    },
-    components: {
-        MenuContent: ()=>import('~/components/head/main_menu_content'),
-    },
-    created () {
-        this.menus = menus;
-    }
-}
-</script>
