@@ -4,7 +4,7 @@ export default {
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
   */
-  mode: 'universal',
+  mode: 'spa', // universal  spa
   /*
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target
@@ -73,7 +73,7 @@ export default {
   },
   proxy: {
     '/api/': {
-      target: 'http://vue.lilysilk.com/api/public/api/', // 代理地址
+      target: 'http://vue.lilysilk.com/lilysilk/public/api/', // 代理地址
       changeOrigin: true,
       pathRewrite: {
         '^/api': ''

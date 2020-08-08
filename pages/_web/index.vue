@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HomeCarousel></HomeCarousel>
+        <HomeCarousel :imageList="homeBanner"></HomeCarousel>
 
         <HomePage></HomePage>
 
@@ -8,13 +8,12 @@
 </template>
 
 <script>
-import Qs from 'qs';
-
 export default {
-    // async asyncData ({app}) {
-    //     const response = await app.$axios.post("/user/homeBanner", {web: "au"});
-    //     return {homeBanner: response.data};
-    // },
+    async asyncData ({app, params}) {
+        const response = await app.$axios.$post("/user/homeBanner", {web: params.web});
+        
+        return {homeBanner: response.data};
+    },
     components: {
         HomeCarousel: ()=>import('~/components/common/carousel'),
         HomePage: ()=>import('~/layouts/home.vue')

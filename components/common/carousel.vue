@@ -1,19 +1,12 @@
 <template>
     <div v-swiper:mySwiper="swiperOption">
         <div class="swiper-wrapper">
-            <!-- <div class="swiper-slide" v-for="(item, index) of homeBanner" :key="index">
-                <router-link :to="item.href">
-                    <img class="swiperImg" :src="'http://115.28.241.1/web/image/poster/'+item.img"/>
+            <div class="swiper-slide" v-for="(item, index) of imageList" :key="index">
+                <router-link :to="item.href" v-if="item.href">
+                    <img class="swiperImg" :src="'http://115.28.241.1/web/image/poster/'+item.img" />
                 </router-link>
-            </div> -->
-            <div class="swiper-slide">
-                <img class="swiper-img" src="https://www.lilysilk.com/images/1024/homeslide1-us.jpg"/>
-            </div>
-            <div class="swiper-slide">
-                <img class="swiper-img" src="https://www.lilysilk.com/images/1024/homeslide2-us.jpg"/>
-            </div>
-            <div class="swiper-slide">
-                <img class="swiper-img" src="https://www.lilysilk.com/images/1024/homeslide3-us.jpg"/>
+
+                <img class="swiperImg" :src="'http://115.28.241.1/web/image/poster/'+item.img" v-else/>
             </div>
         </div>
 
@@ -25,6 +18,14 @@
 
 <script>
 export default {
+    props: {
+        imageList: {
+            type: Array,
+            default: ()=>{
+                return [];
+            }
+        }
+    },
     data(){
         return {
             swiperOption: {
