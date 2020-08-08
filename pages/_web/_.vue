@@ -1,6 +1,5 @@
 <template>
     <div>
-        {{type}}
         <!-- <Category v-if="type == 'category'"></Category> -->
         <Product v-if="type == 'product'"></Product>
     </div>

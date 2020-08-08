@@ -1,6 +1,7 @@
 <template>
     <div class="product-page">
-       <ProductImage></ProductImage>
+           <ProductImage></ProductImage>
+           <ProductPurchase></ProductPurchase>
     </div>
 </template>
 
@@ -13,7 +14,8 @@ export default {
         return {}
     },
     components: {
-        ProductImage: ()=>import('~/pages/product/product-image.vue')
+        ProductImage: ()=>import('~/pages/product/product-image.vue'),
+        ProductPurchase: ()=>import('~/pages/product/product-purchase.vue')
     }
 }
 </script>
