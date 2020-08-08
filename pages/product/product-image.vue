@@ -15,7 +15,7 @@ export default {
         return {}
     },
     components: {
-        ProductCarousel: ()=>import('~/layouts/product/product-carousel-test.vue')
+        ProductCarousel: ()=>import('~/pages/product/product-carousel-test.vue')
     }
 }
 </script>
