@@ -2,9 +2,9 @@
     <div v-swiper:mySwiper="swiperOption">
         <div class="swiper-wrapper">
             <div class="swiper-slide" v-for="(item, index) of imageList" :key="index">
-                <router-link :to="item.href" v-if="item.href">
+                <nuxt-link :to="item.href" v-if="item.href">
                     <img class="swiperImg" :src="'http://115.28.241.1/web/image/poster/'+item.img" />
-                </router-link>
+                </nuxt-link>
 
                 <img class="swiperImg" :src="'http://115.28.241.1/web/image/poster/'+item.img" v-else/>
             </div>
