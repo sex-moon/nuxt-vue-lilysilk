@@ -1,23 +1,29 @@
 <template>
     <div>
-        <!-- <Category v-if="type == 'category'"></Category> -->
-        <Product v-if="type == 'product'"></Product>
+        <Category v-if="type == 'category'"></Category>
+        <Product v-else-if="type == 'product'"></Product>
     </div>
 </template>
 
 <script>
 export default {
-    // async asyncData ({app, params}) {
-    //     const response = await app.$axios.get("/test/1");
-    //     return {type: response.data};
-    // },
-    data(){
-        return {
-            type:"product"
+    async asyncData ({app, params, error}) {
+        const response = await app.$axios.$post("until/urLParsing", {path: params.pathMatch, web: params.web});
+        if(response.code == 200)
+        {
+            return {type: response.type, data: response.data};
+        }
+        else if(response.code == 404)
+        {
+            return error({statusCode: 404});
+        }
+        else
+        {
+            return error({statusCode: 500});
         }
     },
     components: {
-        // Category: ()=>import('~/pages/category.vue'),
+        Category: ()=>import('~/pages/category/index.vue'),
         Product: ()=>import('~/pages/product/index.vue')
     }
 }

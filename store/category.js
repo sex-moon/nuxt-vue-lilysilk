@@ -4,7 +4,9 @@ export const state = ()=>({
 })
 
 export const mutations = {
-
+    setValue(state, val){
+        state.value = val;
+    }
 }
 
 export const actions = {
