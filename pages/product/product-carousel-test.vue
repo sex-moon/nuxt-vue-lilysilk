@@ -84,8 +84,10 @@ export default {
 }
 .custom-swiper-button-prev {
     margin-bottom: 10px;
+    outline: none;
 }
 .custom-swiper-button-next {
     margin-top: 10px;
+    outline: none;
 }
 </style>
