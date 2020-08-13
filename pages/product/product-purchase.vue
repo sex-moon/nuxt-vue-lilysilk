@@ -34,9 +34,9 @@
         <div class="product-options-summary">
             <div class="purchase-quantity">
                 <label class="qty">Qty</label>
-                <div class="qty-button"><div class="fa fa-minus-circle fa-2x"></div></div>
-                <input type="text" name="qty" id="qty" class="input-text-qty" maxlength="12" :value="QtyInput">
-                <div class="qty-button"><div class="fa fa-plus-circle fa-2x"></div></div>
+                <div class="qty-button" @click="minusQty"><div class="fa fa-minus-circle fa-2x"></div></div>
+                <input type="text" name="qty" id="qty" class="input-text-qty" maxlength="12" :value="QtyInput" @input="inputQty">
+                <div class="qty-button" @click="additionQty"><div class="fa fa-plus-circle fa-2x"></div></div>
             </div>
             <div class="total-content">
                 <div class="total">
@@ -60,6 +60,16 @@
                 </div>
             </div>
         </div>
+        <Description></Description>
+        <div class="complete-the-look">
+            <p class="complete-title">Complete The Look</p>
+            <div class="complete-img-lists">
+                <div class="complete-img" v-for="(complete,index) in completes" :key="index">
+                    <img :src="'/images/product/complete/' + complete.img">
+                    <nuxt-link :to="complete.url" class="details">Details</nuxt-link>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -67,6 +77,12 @@
 export default {
     data(){
         return {
+            completes: [
+                {img:'800-6111B-20190130100748.jpg',url:'/'},
+                {img:'800-6196C-20191108102259.jpg',url:'/'},
+                {img:'korean-style-silk-night-sleep-hat-main-7005-1-20200812104730.jpg',url:'/'},
+                {img:'silke-sd-ovnmaske-med-sort-trim-Light-Plum-3122-1-20180706.jpg',url:'/'}
+            ],
             a: "/",
             StockState: "In Stock",
             SkuValue: "4160",
@@ -78,22 +94,48 @@ export default {
             Points: "42",
             isHeart: true,
             QtyInput: "1",
+            isMouseOver: "-1"
         }
     },
     components: {
         ProductOptions: ()=>import("~/pages/product/product-options.vue"),
+        Description: ()=>import("~/pages/product/product-description.vue"),
         Customized: ()=>import("~/components/enclosure/customized.vue"),
-        EmbroideredCharacters: ()=>import("~/components/enclosure/embroidered.vue")
+        EmbroideredCharacters: ()=>import("~/components/enclosure/embroidered.vue"),
+    },
+    methods: {
+        minusQty() {
+            if(this.QtyInput > 1) {
+                this.QtyInput--;
+            }else {
+                this.QtyInput = this.QtyInput;
+            }
+        },
+        additionQty() {
+           if(this.QtyInput < 1) {
+                this.QtyInput = this.QtyInput;
+
+            }else {
+                this.QtyInput++;
+            } 
+        },
+        inputQty(e){
+            this.QtyInput = e.target.value;
+        },
+        // completeover(index) {
+        //     this.isMouseOver = index;
+        // },
+        // completeout() {
+        //     this.isMouseOver = this.isMouseOver;
+        // }
     }
 }
 </script>
 
 <style>
 .product-purchase {
-    display: inline-block;
-    width: 42%;
-    margin-left: 2%;
-    vertical-align: top;
+    width:40%;
+    margin-left: 5%;
 }
 .product-purchase-title {
     font-size: 24px;
@@ -200,12 +242,14 @@ export default {
     color: #d64123;
 }
 /* 加购按钮 */
+.add-to-cart {
+    display: flex;
+}
 .add-to-cart-button,.wish-list {
     height: 48px;
     vertical-align: top;
 }
 .add-to-cart-button {
-    float: left;
     width: 50%;
     margin-right: 20px;
     background: #d64123;
@@ -221,12 +265,51 @@ export default {
     vertical-align: sub;
 }
 .wish-list {
-    float: left;
     width: 48px;
     padding: 10px;
     border: 1px solid #222;
 }
 .wish-list img {
     width: 26px;
+}
+/*成品展示*/
+.complete-the-look {
+    margin-top: 5px;
+}
+.complete-title {
+    display: block;
+    font-size: 19px;
+    font-weight: 400;
+    padding: 7px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+.complete-img-lists {
+    display: flex;
+}
+.complete-img {
+    position: relative;
+    margin: 20px 10px 20px 0;
+    cursor: pointer;
+}
+.complete-img img {
+    min-height: 100px;
+}
+.details {
+    display: none;
+    position: absolute;
+    font-size: 18px;
+    left: 50%;
+    top: 50%;
+    width: 75%;
+    padding: 3px 0;
+    transform: translate(-50%, -50%);
+    background: hsla(0,0%,100%,.8);
+    text-align: center;
+}
+.complete-img:hover .details {
+    display: block;
+}
+.details:hover {
+    color: #C1A446;
 }
 </style>

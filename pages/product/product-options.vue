@@ -5,7 +5,7 @@
                 <span class="select-label">{{ColorName}}</span>
             </p>
             <ul>
-                <li v-for="(colorlist,index) in colorlists" :key="index">
+                <li v-for="(colorlist,index) in colorlists" :key="index" @click="getColorBlock(colorlist.name,index)" @mouseover="colorMouseover(colorlist.name)" @mouseout="colorMouseout" :class="haveColorBorder == index ? 'black-border':''">
                     <img :src="'/images/product/color/'+ colorlist.img">
                 </li>
             </ul>
@@ -15,7 +15,7 @@
                 <span class="select-label">{{SizeName}}</span>
             </p>
             <ul>
-                <li v-for="(sizelist,index) in sizelists" :key="index">
+                <li v-for="(sizelist,index) in sizelists" :key="index" @click="getSizeBlock(sizelist.name,index)" @mouseover="sizeMouseover(sizelist.name)" @mouseout="sizeMouseout" :class="haveSizeBorder == index ? 'black-background':''">
                     <p class="size-list">{{sizelist.name}}</p>
                 </li>
             </ul>
@@ -46,9 +46,38 @@ export default {
                 {name: 'King(20" x 36")'},
                 {name: 'Queen(20" x 30")'}
             ],
-            ColorName: "Black",
-            SizeName: 'Standard(20" x 26")'
+            ColorStorage: "",
+            SizeStorage: "",
+            ColorName: "",
+            SizeName: "",
+            haveColorBorder: "-1",
+            haveSizeBorder: "-1"
         }
+    },
+    methods: {
+        getColorBlock(name,index) {
+            this.ColorStorage = name;
+            this.ColorName = this.ColorStorage;
+            this.haveColorBorder = index;
+        },
+        getSizeBlock(name,index) {
+            this.SizeStorage = name;
+            this.SizeName = this.SizeStorage;
+            this.haveSizeBorder = index;
+        },
+        colorMouseover(name) {
+            this.ColorName = name;
+        },
+        colorMouseout() {
+            this.ColorName = this.ColorStorage;
+        },
+        sizeMouseover(name) {
+             this.SizeName = name;
+        },
+        sizeMouseout() {
+            this.SizeName = this.SizeStorage;
+        }
+
     }
 }
 </script>
@@ -75,15 +104,32 @@ export default {
     margin-right: 10px;
     margin-bottom: 5px;
     border: 2px solid #ccc;
+    cursor: pointer;
 }
 .product-options li img {
     width: 40px;
     height: 40px;
     padding: 2px;
 }
+.product-options li:hover {
+    border-color: #000;
+}
+.product-size-options li:hover {
+    background: #333;
+    color: #fff;
+    border-color: #000;
+}
 .size-list {
     padding: 0 10px;
     height: 40px;
     line-height: 40px;
+}
+.product-options .black-border {
+    border-color: #000;
+}
+.product-options .black-background {
+    background: #333;
+    color: #fff;
+    border-color: #000;
 }
 </style>

@@ -19,3 +19,9 @@ export default {
     }
 }
 </script>
+
+<style>
+.product-page {
+    display: flex;
+}
+</style>

@@ -4,7 +4,10 @@
            <ProductCarousel></ProductCarousel>
        </div>
        <div class="image-big">
-           <img class="img-enlarge" src="https://images.lilysilk.com/media/catalog/product/cache/6/image/1000x/040ec09b1e35df139433887a97daa66f/m/no/4160/19mm-silk-pillowcase-with-ruffle-trim-4160-PUBLIC-3-20190829155025.jpg">
+            <img class="img-enlarge" src="https://images.lilysilk.com/media/catalog/product/cache/6/image/1000x/040ec09b1e35df139433887a97daa66f/m/no/4160/19mm-silk-pillowcase-with-ruffle-trim-4160-PUBLIC-3-20190829155025.jpg">
+            <div class="share-luxury-moment">
+                Share your luxury moment with #lilysilk on IG to win FREE purchase.
+            </div>
        </div>
     </div>
 </template>
@@ -22,22 +25,23 @@ export default {
 
 <style>
 .product-image {
-    display: inline-block;
-    width: 55%;
-    vertical-align: top;
+    display: flex;
+    width: 60%;
 }
 .image-list {
-    display: inline-block;
     margin-right: 10px;
-    vertical-align: top;
 }
 .image-big {
-    display: inline-block;
-    width: 82%;
-    vertical-align: top;
+    width: 100%;
 }
 .img-enlarge {
     padding: 5px;
     border: 1px solid #eee;
+}
+.share-luxury-moment {
+    display: block;
+    border-top: 2px solid #222;
+    margin-top: 20px;
+    text-align: center;
 }
 </style>

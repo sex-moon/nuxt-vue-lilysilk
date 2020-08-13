@@ -2,6 +2,7 @@
     <div class="product-main">
         <div class="temporary-parking">Home > Samething > **********************</div>
         <ProductInformation></ProductInformation>
+        <ProductRecommend></ProductRecommend>
     </div>
 </template>
 
@@ -11,7 +12,8 @@ export default {
     //     console.log("asyncData", "product");
     // },
     components: {
-        ProductInformation: ()=>import('~/pages/product/product.vue')
+        ProductInformation: ()=>import('~/pages/product/product.vue'),
+        ProductRecommend: ()=>import('~/pages/product/product-recommend.vue')
     }
 }
 </script>
