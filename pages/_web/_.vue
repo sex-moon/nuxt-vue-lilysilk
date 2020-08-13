@@ -7,11 +7,19 @@
 
 <script>
 export default {
-    async asyncData ({app, params, error}) {
-        const response = await app.$axios.$post("until/urLParsing", {path: params.pathMatch, web: params.web});
+    async asyncData ({app, params, error, store}) {
+        const response = await app.$axios.$post("/distribute", {path: params.pathMatch, web: params.web});
         if(response.code == 200)
         {
-            return {type: response.type, data: response.data};
+            switch (response.type) {
+                case "category":
+                    store.commit('category/setCategoryInfo', response.data);
+                    break;
+                default:
+                    break;
+            }
+            
+            return {type: response.type};
         }
         else if(response.code == 404)
         {
