@@ -1,5 +1,5 @@
 export const state = () => ({
-    hideTopBanner: false // 隐藏TopBanner
+    hideTopBanner: false, // 隐藏TopBanner
 })
 
 export const mutations = {

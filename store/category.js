@@ -1,11 +1,31 @@
 export const state = ()=>({
-    value: 'Hello World',
-    list: [1, 2, 3, 4, 5]
+    category: {},
+    peerCategory: [],
+    categoryAttributeList: {}
 })
 
 export const mutations = {
-    setValue(state, val){
-        state.value = val;
+    setCategoryInfo(state, data){
+        if(data.category){
+            this.commit("category/setCategory", data.category);
+        }
+
+        if(data.peerCategory){
+            this.commit("category/setPeerCategory", data.peerCategory);
+        }
+
+        if(data.categoryAttributeList){
+            this.commit("category/setcategoryAttributeList", data.categoryAttributeList);
+        }
+    },
+    setCategory(state, data){
+        state.category = data;
+    },
+    setPeerCategory(state, data){
+        state.peerCategory = data;
+    },
+    setcategoryAttributeList(state, data){
+        state.categoryAttributeList = data;
     }
 }
 

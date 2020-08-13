@@ -26,72 +26,72 @@ export default {
                 {
                     name: "United States",
                     alias: "us",
-                    image: require("~/assets/image/country/us.jpg")
+                    image: require("~/assets/image/common/us.jpg")
                 },
                 {
                     name: "Canada",
                     alias: "ca",
-                    image: require("~/assets/image/country/ca.jpg")
+                    image: require("~/assets/image/common/ca.jpg")
                 },
                 {
                     name: "United Kingdom",
                     alias: "uk",
-                    image: require("~/assets/image/country/uk.jpg")
+                    image: require("~/assets/image/common/uk.jpg")
                 },
                 {
                     name: "Australia",
                     alias: "au",
-                    image: require("~/assets/image/country/au.jpg")
+                    image: require("~/assets/image/common/au.jpg")
                 },
                 {
                     name: "France",
                     alias: "fr",
-                    image: require("~/assets/image/country/fr.jpg")
+                    image: require("~/assets/image/common/fr.jpg")
                 },
                 {
                     name: "日本",
                     alias: "jp",
-                    image: require("~/assets/image/country/jp.jpg")
+                    image: require("~/assets/image/common/jp.jpg")
                 },
                 {
                     name: "Deutschland",
                     alias: "de",
-                    image: require("~/assets/image/country/de.jpg")
+                    image: require("~/assets/image/common/de.jpg")
                 },
                 {
                     name: "Nederland",
                     alias: "nl",
-                    image: require("~/assets/image/country/nl.jpg")
+                    image: require("~/assets/image/common/nl.jpg")
                 },
                 {
                     name: "Singapore",
                     alias: "sg",
-                    image: require("~/assets/image/country/sg.jpg")
+                    image: require("~/assets/image/common/sg.jpg")
                 },
                 {
                     name: "Russia",
                     alias: "ru",
-                    image: require("~/assets/image/country/ru.jpg")
+                    image: require("~/assets/image/common/ru.jpg")
                 },
                 {
                     name: "Italia",
                     alias: "it",
-                    image: require("~/assets/image/country/it.jpg")
+                    image: require("~/assets/image/common/it.jpg")
                 },
                 {
                     name: "España",
                     alias: "es",
-                    image: require("~/assets/image/country/es.jpg")
+                    image: require("~/assets/image/common/es.jpg")
                 },
                 {
                     name: "Sverige",
                     alias: "se",
-                    image: require("~/assets/image/country/se.jpg")
+                    image: require("~/assets/image/common/se.jpg")
                 },
                 {
                     name: "Danmark",
                     alias: "dk",
-                    image: require("~/assets/image/country/dk.jpg")
+                    image: require("~/assets/image/common/dk.jpg")
                 },
             ]
         }
