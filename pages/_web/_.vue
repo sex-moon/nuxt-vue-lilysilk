@@ -1,7 +1,7 @@
 <template>
     <div>
-        <Category v-if="type == 'category'"></Category>
-        <Product v-else-if="type == 'product'"></Product>
+        <!-- <Category v-if="type == 'category'"></Category>
+        <Product v-else-if="type == 'product'"></Product> -->
     </div>
 </template>
 
