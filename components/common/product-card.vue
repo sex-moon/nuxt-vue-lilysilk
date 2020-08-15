@@ -1,36 +1,48 @@
 <template>
     <div class="product-card">
         <nuxt-link to="#" class="product-image">
-            <img src="http://115.28.241.1/web/image/product/1008/500/19-momme-terse-silke-pudebetra-ek-Light-Green-1008-31-5075-2-20181025.jpg" alt="19-momme-terse-silke-pudebetra-ek-Light-Green-1008-31-5075-2-20181025">
+            <img v-lazy="'http://115.28.241.1/web/image/product/'+product.sku+'/500/'+productImage" @mouseover="changeImage(1)" @mouseout="changeImage(0)">
         </nuxt-link>
 
-        <p class="product-name">19 Momme Terse Envelope Silk Pillowcase</p>
+        <p class="product-name">{{product.name}}</p>
 
         <p class="product-price">
-            <span class="price">US$ 62</span>
+            <span class="price">US$ {{product.price}}</span>
             <i class="fa fa-heart-o" aria-hidden="true"></i>
         </p>
 
-        <ul class="color-list">
-            <li><img src="http://115.28.241.1/web/image/attribute/pale-turquoise.png" alt="pale-turquoise"></li>
-            <li><img src="http://115.28.241.1/web/image/attribute/pale-turquoise.png" alt="pale-turquoise"></li>
-            <li><img src="http://115.28.241.1/web/image/attribute/pale-turquoise.png" alt="pale-turquoise"></li>
-            <li><img src="http://115.28.241.1/web/image/attribute/pale-turquoise.png" alt="pale-turquoise"></li>
-            <li><img src="http://115.28.241.1/web/image/attribute/pale-turquoise.png" alt="pale-turquoise"></li>
-            <li><img src="http://115.28.241.1/web/image/attribute/pale-turquoise.png" alt="pale-turquoise"></li>
-            <li><img src="http://115.28.241.1/web/image/attribute/pale-turquoise.png" alt="pale-turquoise"></li>
-            <li><img src="http://115.28.241.1/web/image/attribute/pale-turquoise.png" alt="pale-turquoise"></li>
-            <li><img src="http://115.28.241.1/web/image/attribute/pale-turquoise.png" alt="pale-turquoise"></li>
-            <li><img src="http://115.28.241.1/web/image/attribute/pale-turquoise.png" alt="pale-turquoise"></li>
-            <li><img src="http://115.28.241.1/web/image/attribute/pale-turquoise.png" alt="pale-turquoise"></li>
+        <ul class="color-list" v-if="product.colors.length > 0">
+            <li v-for="(color, index) in product.colors" :key="index">
+                <img :src="require('~/static/images/attribute/'+color.attribute_value_img)" :alt="color.attribute_value">
+            </li>
         </ul>
     </div>
 </template>
 
-<style scoped>
-.product-image {
-
+<script>
+export default {
+    props: {
+        product: {
+            type: Object,
+            default: ()=>{
+                return {};
+            }
+        }
+    },
+    data () {
+        return {
+            productImage: this.product.product_image[0].img
+        }
+    },
+    methods: {
+        changeImage(index){
+            this.productImage = this.product.product_image[index].img;
+        }
+    }
 }
+</script>
+
+<style scoped>
 .product-name{
     margin: 3px 0;
     padding: 0;
@@ -48,14 +60,15 @@
 .color-list{
     display: flex;
     margin: 16px 0;
+    flex-wrap: wrap;
 }
 .color-list li{
     margin-right: 5px;
+    margin-bottom: 5px;
 }
 .color-list li img{
     padding: 1px;
     width: 25px;
-    margin: 1px;
     border: 1px solid #ccc;
     cursor: pointer;
     transition: ease-in-out border-color 300ms;

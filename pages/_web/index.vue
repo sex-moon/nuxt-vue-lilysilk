@@ -10,7 +10,7 @@
 <script>
 export default {
     async asyncData ({app, params}) {
-        const response = await app.$axios.$post("/user/homeBanner", {web: params.web});
+        const response = await app.$axios.$post("/homeBanner", {web: params.web});
         
         return {homeBanner: response.data};
     },

@@ -1,7 +1,9 @@
 export const state = ()=>({
     category: {},
     peerCategory: [],
-    categoryAttributeList: {}
+    categoryAttributeList: {},
+    categoryProducts: [],
+    categoryPagination: {}
 })
 
 export const mutations = {
@@ -17,6 +19,14 @@ export const mutations = {
         if(data.categoryAttributeList){
             this.commit("category/setcategoryAttributeList", data.categoryAttributeList);
         }
+
+        if(data.products){
+            this.commit("category/setCategoryProducts", data.products);
+        }
+
+        if(data.categoryPagination){
+            this.commit("category/setCategoryPagination", data.categoryPagination);
+        }
     },
     setCategory(state, data){
         state.category = data;
@@ -26,6 +36,12 @@ export const mutations = {
     },
     setcategoryAttributeList(state, data){
         state.categoryAttributeList = data;
+    },
+    setCategoryProducts(state, data){
+        state.categoryProducts = data;
+    },
+    setCategoryPagination(state, data){
+        state.categoryPagination = data;
     }
 }
 

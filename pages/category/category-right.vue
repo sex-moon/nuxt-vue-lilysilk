@@ -1,7 +1,7 @@
 <template>
     <div class="category-content-right">
         <div class="title">
-            <div><span class="name f20">{{category.name}}</span><span class="number">28 Products</span></div>
+            <div><span class="name f20">{{category.name}}</span><span class="number">{{categoryPagination.totalRows}} Products</span></div>
         </div>
 
         <div class="sort">
@@ -12,11 +12,11 @@
             </b-dropdown>
         </div>
 
-        <div class="product-list">
-            <ProductCard></ProductCard>
-            <ProductCard></ProductCard>
-            <ProductCard></ProductCard>
+        <div class="product-list" v-if="categoryProducts.length > 0">
+            <ProductCard v-for="(product, index) in categoryProducts" :key="index" :product="product"></ProductCard>
         </div>
+
+        <b-pagination :value="currentPage" :total-rows="categoryPagination.totalRows" :per-page="perPage" align="right" class="category-pagination"></b-pagination>
     </div>
 </template>
 
@@ -24,8 +24,14 @@
 import {mapState} from "vuex"
 
 export default {
+    data () {
+        return {
+            perPage: 3, // 每页记录数
+            currentPage: 1, // 当前页数    
+        }
+    },
     computed: {
-        ...mapState("category", ["category"])
+        ...mapState("category", ["category", "categoryProducts", "categoryPagination"])
     },
     components: {
         ProductCard: ()=>import("~/components/common/product-card")
@@ -48,16 +54,30 @@ export default {
 .sort{
     text-align: right;
 }
-.sort-dropdown{
-    background-color: #fff;
-    color: #333;
-}
 .product-list{
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
+    flex-wrap: wrap;
 }
 .product-list > div{
     width: 32%;
+    margin-bottom: 16px;
+}
+</style>
+
+<style>
+.sort-dropdown button:nth-of-type(1){
+    background-color: #fff !important;
+    color: #333;
+}
+.category-pagination .page-link{
+    color: #333;
+    transition: ease-in-out background-color 300ms;
+}
+.category-pagination .page-item.active .page-link{
+    background-color: #e9e9e9;
+    border-color: #dee2e6;
+    color: #333;
 }
 </style>
