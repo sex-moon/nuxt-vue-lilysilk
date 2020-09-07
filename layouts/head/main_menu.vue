@@ -1,8 +1,8 @@
 <template>
     <nav>
         <ul class="main-menu">
-            <li v-for="(menu, index) in menus" :key="index" class="pl-3 pr-3">
-                <p>{{menu.name}}&nbsp;&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></p>
+            <li v-for="(menu, index) in menus" :key="index">
+                <p><nuxt-link :to="{path: web+'/'+menu.href}">{{menu.name}}</nuxt-link>&nbsp;&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></p>
 
                 <div class="content" v-if="menu.content">
                     <MenuContent :menuData="menu.content"></MenuContent>
@@ -14,6 +14,7 @@
 
 <script>
 import menus from "~/static/data/main_menu.js";
+import {mapState} from "vuex";
 
 export default {
     data() {
@@ -23,6 +24,9 @@ export default {
     },
     components: {
         MenuContent: ()=>import('~/components/head/main_menu_content'),
+    },
+    computed: {
+        ...mapState(["web"])
     },
     created () {
         this.menus = menus;
@@ -36,6 +40,9 @@ export default {
     justify-content: center;
     height: 50px;
     line-height: 50px;
+}
+.main-menu li{
+    padding: 0 10px;
 }
 .main-menu li > p{
     cursor: pointer;

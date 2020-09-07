@@ -5,9 +5,8 @@ export default (context) => {
         key: 'lilysilk-vuex',
         reducer(state){
             return {
-                hideTopBanner: state.hideTopBanner,
-                category: {
-                    value: state.category.value
+                customer: {
+                    accessToken: state.customer.accessToken
                 }
             }
         }

@@ -1,10 +1,14 @@
 export const state = () => ({
-    hideTopBanner: false, // 隐藏TopBanner
+    web: "au", // 站点
+    openMiniCart: false
 })
 
 export const mutations = {
-    setHideTopBanner(state, status){
-        state.hideTopBanner = status;
+    setWeb(state, web){
+        state.web = web;
+    },
+    setOpenMiniCart(state, status){
+        state.openMiniCart = status;
     }
 }
 

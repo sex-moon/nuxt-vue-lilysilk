@@ -1,7 +1,7 @@
 <script>
 export default {
-	asyncData({ redirect }) {
-		redirect('/au');
+	asyncData({ redirect, store }) {
+		redirect('/'+store.state.web);
 	}
 }
 </script>

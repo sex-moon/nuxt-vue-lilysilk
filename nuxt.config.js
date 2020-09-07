@@ -31,17 +31,18 @@ export default {
   css: [
     '~/assets/css/main.css',
     '~/assets/css/font-awesome-4.7.0/css/font-awesome.min.css',
-    // 'swiper/dist/css/swiper.css'
+    'view-design/dist/styles/iview.css'
   ],
   /*
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    {src: '~/plugins/bootstrap-vue'},
+    {src: '~/plugins/iview'},
     {src: '~/plugins/vuex-persistedstate.js', ssr: false},
     {src: '~/plugins/vue-lazyload', ssr: false},
-    {src: "@/plugins/vue-awesome-swiper.js", ssr: false }
+    {src: "~/plugins/vue-awesome-swiper.js", ssr: false },
+    {src: "~/plugins/veeValidate.js"}
   ],
   /*
   ** Auto import components
@@ -58,7 +59,7 @@ export default {
   */
   modules: [
     // Doc: https://bootstrap-vue.js.org
-    'bootstrap-vue/nuxt',
+    // 'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
   ],
@@ -85,5 +86,8 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+    transpile: [
+      "vee-validate/dist/rules"
+    ]
   }
 }

@@ -1,12 +1,10 @@
 <template>
-    <div v-swiper:mySwiper="swiperOption">
+    <div v-swiper:mySwiper="swiperOption" v-if="imageList.length > 0">
         <div class="swiper-wrapper">
             <div class="swiper-slide" v-for="(item, index) of imageList" :key="index">
-                <nuxt-link :to="item.href" v-if="item.href">
-                    <img class="swiperImg" :src="'http://115.28.241.1/web/image/poster/'+item.img" />
+                <nuxt-link :to="{path: web+'/'+item.href}">
+                    <img class="swiperImg" :src="'https://www.lilysilk.com/images/1024/'+item.img" />
                 </nuxt-link>
-
-                <img class="swiperImg" :src="'http://115.28.241.1/web/image/poster/'+item.img" v-else/>
             </div>
         </div>
 
@@ -17,6 +15,8 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
+
 export default {
     props: {
         imageList: {
@@ -40,6 +40,9 @@ export default {
                 }
             }
         }
+    },
+    computed: {
+        ...mapState(["web"])
     }
 }
 </script>

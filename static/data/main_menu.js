@@ -78,6 +78,7 @@ const menus = [
     },
     {
         name: "PILLOWCASE",
+        href: "bedding/sheets/silk-pillowcases",
         content: {
             poster: require("~/static/images/menu/navipic-pillowcase.jpg"),
             columns: [

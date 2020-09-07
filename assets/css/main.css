@@ -9,7 +9,7 @@ li{
     list-style: none;
 }
 a{
-    color: #333;
+    color: #555;
     text-decoration: none;
 }
 a:hover{
@@ -37,8 +37,14 @@ img {
 .f12 {
     font-size: 12px;
 }
+.f13 {
+    font-size: 13px;
+}
 .f14 {
     font-size: 14px;
+}
+.f15 {
+    font-size: 15px;
 }
 .f16 {
     font-size: 16px;
@@ -48,4 +54,19 @@ img {
 }
 .f20 {
     font-size: 20px;
+}
+.f24 {
+    font-size: 24px;
+}
+
+.is-invalid{
+    border-color: #ee001c !important;
+}
+.is-invalid-msg{
+    clear: both;
+    font-size: .9166em;
+    line-height: 1em;
+    color: #ee001c;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }

@@ -1,16 +1,16 @@
 <template>
-    <transition name="hide">
-        <div class="topbanner tc" v-if="!hideTopBanner">
-            <ul class="container-fluid">
-                <li v-for="(topBanner, key) in topBanners" :key="key">
-                    <nuxt-link :to="topBanner.href">
-                        <span class="message">{{topBanner.message}}</span>&nbsp;&nbsp;
-                        <span class="button p-1 d-none d-sm-inline">{{topBanner.button}}</span>
-                    </nuxt-link>
-                </li>
-            </ul>
-
+    <transition name="topbannerHide">
+        <div class="tc" id="topbanner" v-if="!hideTopBanner && topbannar.content">
+            <div v-html="topbannar.content"></div>
+            
+            <i class="fa banner-main-show" :class="[bannerMainShow ? 'fa-angle-double-up':'fa-angle-double-down']" aria-hidden="true" @click="bannerMainShow = !bannerMainShow" v-if="topbannar.content_dropdown"></i>
             <i class="fa fa-times close" aria-hidden="true" @click="setHideTopBanner(true)"></i>
+
+            <transition name="bannerMainFade">
+                <div class="banner-main" v-show="bannerMainShow">
+                    <div class="banner-main-container" v-html="topbannar.content_dropdown"></div>
+                </div>
+            </transition>
         </div>
     </transition>
 </template>
@@ -20,17 +20,11 @@ import {mapState, mapMutations} from "vuex";
 export default {
     data () {
         return {
-            topBanners: [
-                {
-                    message: "$10 OFF Every $200 Storewide",
-                    button: "Shop Now",
-                    href: "#",
-                }
-            ]
+            bannerMainShow: false      
         }
     },
     computed: {
-        ...mapState(["hideTopBanner"])
+        ...mapState("header", ["hideTopBanner", "topbannar"])
     },
     methods: {
         ...mapMutations(["setHideTopBanner"])
@@ -38,20 +32,17 @@ export default {
 }
 </script>
 
-<style scoped>
-.topbanner{
+<style>
+#topbanner{
     background-color: #000;
     position: relative;
     height: 45px;
     line-height: 45px;
 }
-li a{
+#topbanner li a{
     color: #fff;
 }
-.button{
-    background-color: #D64123;
-}
-.close{
+#topbanner .close, #topbanner .banner-main-show{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -59,13 +50,41 @@ li a{
     cursor: pointer;
     color: #fff;
 }
-.hide-leave-active {
+#topbanner .banner-main-show{
+    right: 600px;
+}
+
+#topbanner .banner-main-container {
+    position: absolute;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.15);
+}
+#topbanner .banner-main-container .imgList{
+    display: flex;
+}
+#topbanner .banner-main-container .imgList li {
+  margin-right: 10px;
+}
+#topbanner .banner-main-container .imgList li img {
+  width: 100%;
+}
+
+
+.topbannerHide-leave-active {
   transition: top 200ms ease-in-out;
 }
-.hide-leave {
+.topbannerHide-leave {
   top: 0;
 }
-.hide-leave-to {
+.topbannerHide-leave-to {
   top: -40px;
+}
+.bannerMainFade-enter, .bannerMainFade-leave-to {
+  transform: translateY(-100px);
+  opacity: 0;
+}
+.bannerMainFade-leave-active, .bannerMainFade-enter-active {
+  transition: all 0.5s linear;
 }
 </style>
