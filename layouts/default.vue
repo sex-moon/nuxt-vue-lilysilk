@@ -41,7 +41,7 @@ export default {
 		}
 	},
 	mounted () {
-		this.getSuggestions();
+		// this.getSuggestions();
 	}
 }
 </script>

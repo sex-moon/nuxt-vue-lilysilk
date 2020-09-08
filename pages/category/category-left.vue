@@ -1,9 +1,9 @@
 <template>
     <div class="category-content-left">
-        <div class="category" v-if="peerCategory.length > 0">
+        <div class="category" v-if="sonCategory.length > 0">
             <p class="title">Category</p>
             <ul>
-                <li v-for="(category, index) in peerCategory" :key="index">
+                <li v-for="(category, index) in sonCategory" :key="index">
                     <nuxt-link :to="category.url">{{category.name}}</nuxt-link>
                 </li>
             </ul>
@@ -14,9 +14,9 @@
                 <p class="title">{{key|initialsUpperCase}}</p>
                 <ul>
                     <li v-for="(attribute, index) in categoryAttribute" :key="index">
-                        <b-form-checkbox size="sm" plain></b-form-checkbox>
-                        <img v-if="attribute.attribute_value_img" :src="require('~/static/images/attribute/'+attribute.attribute_value_img)" :alt="attribute.name">
-                        <span>{{attribute.name}}</span>
+                        <input type="Checkbox" />
+                        <img v-if="attribute.image" :src="`${domainName}/attribute/${attribute.image}`" :alt="attribute.value">
+                        <span>{{attribute.value}}</span>
                     </li>
                 </ul>
             </div>
@@ -28,7 +28,8 @@
 import { mapState } from "vuex";
 export default {
     computed: {
-        ...mapState("category", ["peerCategory", "categoryAttributeList"])
+        ...mapState(["domainName"]),
+        ...mapState("category", ["sonCategory", "categoryAttributeList"])
     },
     filters: {
         initialsUpperCase(str){
@@ -55,11 +56,11 @@ export default {
 .category ul li:hover a{
     color: #c1a446;
 }
-.attribute ul{
+.category ul, .attribute ul{
     max-height: 250px;
     overflow-y: auto;
 }
-.attribute ul li{
+.category ul li, .attribute ul li{
     font-size: 13px;
     color: #666;
     display: flex;
@@ -73,7 +74,7 @@ export default {
     height: 15px;
     margin-right: 5px;
 }
-.attribute ul li span{
+.category ul li span, .attribute ul li span{
     word-break: keep-all;
     white-space: nowrap;
 }

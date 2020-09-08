@@ -1,38 +1,41 @@
 export const state = ()=>({
     category: {},
-    peerCategory: [],
+    sonCategory: [],
     categoryAttributeList: {},
     categoryProducts: [],
-    categoryPagination: {}
+    categoryPagination: {},
+    perPage: 15, // 每页条数
+    sort: "price", // 默认排序规则
+    order: "asc", // 默认正序
 })
 
 export const mutations = {
-    setCategoryInfo(state, data){
-        if(data.category){
-            this.commit("category/setCategory", data.category);
+    setCategoryInfo(state, info){
+        if(info.current){
+            this.commit("category/setCategory", info.current);
         }
 
-        if(data.peerCategory){
-            this.commit("category/setPeerCategory", data.peerCategory);
+        if(info.son){
+            this.commit("category/setSonCategory", info.son);
         }
 
-        if(data.categoryAttributeList){
-            this.commit("category/setcategoryAttributeList", data.categoryAttributeList);
+        if(info.category_attributes){
+            this.commit("category/setcategoryAttributeList", info.category_attributes);
         }
 
-        if(data.products){
-            this.commit("category/setCategoryProducts", data.products);
-        }
+        if(info.products){
+            info.products.total > 0 && this.commit("category/setCategoryProducts", info.products.data);
 
-        if(data.categoryPagination){
-            this.commit("category/setCategoryPagination", data.categoryPagination);
+            delete info.products.data;
+
+            this.commit("category/setCategoryPagination", info.products)
         }
     },
     setCategory(state, data){
         state.category = data;
     },
-    setPeerCategory(state, data){
-        state.peerCategory = data;
+    setSonCategory(state, data){
+        state.sonCategory = data;
     },
     setcategoryAttributeList(state, data){
         state.categoryAttributeList = data;
@@ -42,6 +45,15 @@ export const mutations = {
     },
     setCategoryPagination(state, data){
         state.categoryPagination = data;
+    },
+    setPerPage(state, perPage){
+        state.perPage = perPage;
+    },
+    setSort(state, sort){
+        state.sort = sort;
+    },
+    setOrder(state, order){
+        state.order = order;
     }
 }
 

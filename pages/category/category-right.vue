@@ -1,40 +1,54 @@
 <template>
     <div class="category-content-right">
         <div class="title">
-            <div><span class="name f20">{{category.name}}</span><span class="number">{{categoryPagination.totalRows}} Products</span></div>
+            <div><span class="name f20">{{category.name}}</span><span class="number">{{categoryPagination.total}} Products</span></div>
         </div>
 
-        <div class="sort">
-            <b-dropdown split right text="Recommend" class="m-2 sort-dropdown">
-                <b-dropdown-item href="#">Hot Sale</b-dropdown-item>
-                <b-dropdown-item href="#">Pirce</b-dropdown-item>
-                <b-dropdown-item href="#">Discount</b-dropdown-item>
-            </b-dropdown>
+        <div class="sort tr">
+            <Select v-model="sort" style="width:150px;text-align: left;">
+                <Option value="recommend">Recommend</Option>
+                <Option value="price">Price</Option>
+                <Option value="hot">Hot Sale</Option>
+                <Option value="discount">Discount</Option>
+            </Select>
         </div>
 
-        <div class="product-list" v-if="categoryProducts.length > 0">
+        <div class="product-list" v-if="categoryProducts.length > 0" ref="productList">
             <ProductCard v-for="(product, index) in categoryProducts" :key="index" :product="product"></ProductCard>
         </div>
 
-        <b-pagination :value="currentPage" :total-rows="categoryPagination.totalRows" :per-page="perPage" align="right" class="category-pagination"></b-pagination>
+        <Page :total="categoryPagination.total" :page-size="perPage" :current="1" class="category-pagination" @on-change="changePage" />
     </div>
 </template>
 
 <script>
-import {mapState} from "vuex"
+import {mapState, mapMutations} from "vuex"
 
 export default {
-    data () {
-        return {
-            perPage: 3, // 每页记录数
-            currentPage: 1, // 当前页数    
-        }
-    },
     computed: {
-        ...mapState("category", ["category", "categoryProducts", "categoryPagination"])
+        ...mapState("category", ["category", "categoryProducts", "categoryPagination", "sort", "perPage"])
     },
     components: {
         ProductCard: ()=>import("~/components/common/product-card")
+    },
+    methods: {
+        ...mapMutations("category", ["setCategoryProducts"]),
+        async changePage(val){
+            this.$nuxt.$loading.start();
+            const response = await this.$axios.$get(`/products/category_show/${this.category.id}`, {params: {page: val}});
+
+            window.scrollTo({
+                top: this.$refs["productList"].offsetTop - 100, 
+                behavior: "smooth"
+            });
+
+            this.$nuxt.$loading.finish();
+
+            if(response.status == 200)
+            {
+                this.setCategoryProducts(response.info.products.data);
+            }
+        }
     }
 }
 </script>
@@ -52,7 +66,7 @@ export default {
     font-weight: normal;
 }
 .sort{
-    text-align: right;
+    margin-top: 10px;
 }
 .product-list{
     display: flex;
@@ -64,20 +78,8 @@ export default {
     width: 32%;
     margin-bottom: 16px;
 }
-</style>
-
-<style>
-.sort-dropdown button:nth-of-type(1){
-    background-color: #fff !important;
-    color: #333;
-}
-.category-pagination .page-link{
-    color: #333;
-    transition: ease-in-out background-color 300ms;
-}
-.category-pagination .page-item.active .page-link{
-    background-color: #e9e9e9;
-    border-color: #dee2e6;
-    color: #333;
+.category-pagination{
+    margin-top: 20px;
+    text-align: right;
 }
 </style>

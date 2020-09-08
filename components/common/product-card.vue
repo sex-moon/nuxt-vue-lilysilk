@@ -1,25 +1,26 @@
 <template>
     <div class="product-card">
         <nuxt-link to="#" class="product-image">
-            <img v-lazy="'http://115.28.241.1/web/image/product/'+product.sku+'/500/'+productImage" @mouseover="changeImage(1)" @mouseout="changeImage(0)">
+            <img v-lazy="`${domainName}/product/${product.sku}/500/${productImage}`" @mouseover="changeImage(1)" @mouseout="changeImage(0)">
         </nuxt-link>
 
         <p class="product-name">{{product.name}}</p>
 
         <p class="product-price">
-            <span class="price">US$ {{product.price}}</span>
+            <span class="price">{{currencyCode}} {{product.price}}</span>
             <i class="fa fa-heart-o" aria-hidden="true"></i>
         </p>
 
-        <ul class="color-list" v-if="product.colors.length > 0">
+        <ul class="color-list" v-if="product.colors && product.colors.length > 0">
             <li v-for="(color, index) in product.colors" :key="index">
-                <img :src="require('~/static/images/attribute/'+color.attribute_value_img)" :alt="color.attribute_value">
+                <img :src="`/images/attribute/${color.image}`" :alt="color.value">
             </li>
         </ul>
     </div>
 </template>
 
 <script>
+import {mapState} from "vuex"
 export default {
     props: {
         product: {
@@ -31,12 +32,18 @@ export default {
     },
     data () {
         return {
-            productImage: this.product.product_image[0].img
+            productImage: this.product.productImg.length > 0 && this.product.productImg[0].image || ""
         }
+    },
+    computed: {
+        ...mapState(["currencyCode", "domainName"])  
     },
     methods: {
         changeImage(index){
-            this.productImage = this.product.product_image[index].img;
+            if(this.product.productImg.length > 0)
+            {
+                this.productImage = this.product.productImg[index].image;
+            }
         }
     }
 }

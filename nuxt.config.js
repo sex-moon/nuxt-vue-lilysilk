@@ -14,6 +14,7 @@ export default {
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head
   */
+  loading: '~/components/common/loading.vue',
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -42,7 +43,8 @@ export default {
     {src: '~/plugins/vuex-persistedstate.js', ssr: false},
     {src: '~/plugins/vue-lazyload', ssr: false},
     {src: "~/plugins/vue-awesome-swiper.js", ssr: false },
-    {src: "~/plugins/veeValidate.js"}
+    {src: "~/plugins/veeValidate.js"},
+    {src: "~/plugins/i18n.js"}
   ],
   /*
   ** Auto import components
@@ -88,6 +90,7 @@ export default {
   build: {
     transpile: [
       "vee-validate/dist/rules"
-    ]
+    ],
+    vendor: ['vue-i18n']
   }
 }

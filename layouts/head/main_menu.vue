@@ -2,7 +2,7 @@
     <nav>
         <ul class="main-menu">
             <li v-for="(menu, index) in menus" :key="index">
-                <p><nuxt-link :to="{path: web+'/'+menu.href}">{{menu.name}}</nuxt-link>&nbsp;&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></p>
+                <p><nuxt-link :to="{path: menu.href}">{{menu.name}}</nuxt-link>&nbsp;&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></p>
 
                 <div class="content" v-if="menu.content">
                     <MenuContent :menuData="menu.content"></MenuContent>
@@ -22,11 +22,11 @@ export default {
             menus: []
         }
     },
+    computed: {
+        ...mapState(["web"])  
+    },
     components: {
         MenuContent: ()=>import('~/components/head/main_menu_content'),
-    },
-    computed: {
-        ...mapState(["web"])
     },
     created () {
         this.menus = menus;
