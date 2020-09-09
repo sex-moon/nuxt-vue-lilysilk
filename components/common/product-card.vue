@@ -1,6 +1,6 @@
 <template>
     <div class="product-card">
-        <nuxt-link to="#" class="product-image">
+        <nuxt-link :to="{path: product.url}" class="product-image">
             <img v-lazy="`${domainName}/product/${product.sku}/500/${productImage}`" @mouseover="changeImage(1)" @mouseout="changeImage(0)">
         </nuxt-link>
 

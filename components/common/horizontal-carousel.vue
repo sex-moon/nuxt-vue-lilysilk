@@ -2,13 +2,11 @@
     <div v-swiper:mySwiper="swiperOption" v-if="imageList.length > 0">
         <div class="swiper-wrapper">
             <div class="swiper-slide" v-for="(item, index) of imageList" :key="index">
-                <nuxt-link :to="{path: web+'/'+item.href}">
-                    <img class="swiperImg" :src="'https://www.lilysilk.com/images/1024/'+item.img" />
-                </nuxt-link>
+                <img class="swiper-img" :src="`${domainName}${item.image}`" />
             </div>
         </div>
 
-        <div class="swiper-pagination" slot="pagination"></div>
+        <div class="swiper-pagination" slot="pagination" v-if="pagination"></div>
         <div class="custom-swiper-button-prev fa fa-angle-left" slot="button-prev"></div>
         <div class="custom-swiper-button-next fa fa-angle-right" slot="button-next"></div>
     </div>
@@ -24,16 +22,36 @@ export default {
             default: ()=>{
                 return [];
             }
+        },
+        effect: { // 轮播风格 默认为"slide"（位移切换），可设置为"fade"（淡入）"cube"（方块）"coverflow"（3d流）"flip"（3d翻转）
+            type: String,
+            default: "slide"
+        },
+        slidesPerView: { // 轮播显示数量
+            type: Number,
+            default: 1
+        },
+        spaceBetween: { // 每个swiper-slide之间的间距
+            type: Number,
+            default: 0
+        },
+        loop: { // 是否开启自动循环模式
+            type: Boolean,
+            default: false
+        },
+        pagination: { // 是否显示点点
+            type: Boolean,
+            default: false
         }
     },
     data(){
         return {
             swiperOption: {
-                effect: "fade",
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true
-                },
+                effect: this.effect,
+                direction: "horizontal",
+                slidesPerView: this.slidesPerView,
+                spaceBetween: this.spaceBetween,
+                loop: this.loop,
                 navigation: {
                     nextEl: '.custom-swiper-button-next',
                     prevEl: '.custom-swiper-button-prev'
@@ -41,13 +59,24 @@ export default {
             }
         }
     },
+    watch: {
+        pagination: {
+            handler(newVal){
+                newVal && Object.assign(this.swiperOption, {pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true
+                }});
+            },
+            immediate: true
+        }     
+    },
     computed: {
-        ...mapState(["web"])
+        ...mapState(["domainName"])
     }
 }
 </script>
 
-<style>
+<style scoped>
 .swiper-pagination{
     height: 20px;
     display: flex;
@@ -79,20 +108,31 @@ export default {
     text-align: center;
     cursor: pointer;
     color: #000;
-    z-index: 10;font-family: FontAwesome;display: none;}
-.prevSwiper:hover,.nextSwiper:hover{background: #c1a446;color:#fff;}
-.prevSwiper{left: 0px;}
-.nextSwiper{right: 0px;}
+    z-index: 10;
+    display: none;
+}
+.prevSwiper:hover,.nextSwiper:hover{
+    background: #c1a446;color:#fff;
+}
+.prevSwiper{
+    left: 0px;
+}
+.nextSwiper{
+    right: 0px;
+}
 .prevSwiper:before {
     content: "\f104";
     font-size: 28px;
     margin-top: 10px;
-    display: inline-block;cursor: pointer;}
+    display: inline-block;cursor: pointer;
+}
 .nextSwiper:before {
     content: "\f105";
     font-size: 28px;
     margin-top: 10px;
-    display: inline-block;cursor: pointer;}
+    display: inline-block;
+    cursor: pointer;
+}
 .custom-swiper-button-prev, .custom-swiper-button-next{
     position: absolute;
     top: 50%;

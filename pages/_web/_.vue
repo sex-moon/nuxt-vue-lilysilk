@@ -24,7 +24,8 @@ export default {
                 case "category":
                     store.commit('category/setCategoryInfo', response.info);
                     break;
-                default:
+                case "product":
+                    store.commit('product/setProductInfo', response.info);
                     break;
             }
             
