@@ -1,13 +1,14 @@
 <template>
-    <div v-swiper:mySwiper="swiperOption" v-if="imageList.length > 0" :style="_style">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide" v-for="(item, index) of imageList" :key="index">
-                <img class="swiper-img" :src="`${domainName}${item.image}`" />
+    <div class="tc swiper-no-swiping">
+        <div class="custom-swiper-button-prev fa fa-angle-up" slot="button-prev"></div>
+        <div v-swiper:mySwiper="swiperOption" v-if="imageList.length > 0" :style="_style">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" v-for="(item, index) of imageList" :key="index">
+                    <img class="swiper-img" :src="`${domainName}${item.image}`" />
+                </div>
             </div>
         </div>
-
-        <!-- <div class="custom-swiper-button-prev fa fa-angle-up" slot="button-prev"></div>
-        <div class="custom-swiper-button-next fa fa-angle-down" slot="button-next"></div> -->
+        <div class="custom-swiper-button-next fa fa-angle-down" slot="button-next"></div>
     </div>
 </template>
 
@@ -28,7 +29,7 @@ export default {
         },
         slidesPerView: { // 轮播显示数量
             type: Number,
-            default: 3.3
+            default: 4.3
         },
         spaceBetween: { // 每个swiper-slide之间的间距
             type: Number,
@@ -42,8 +43,9 @@ export default {
             type: Object,
             default: ()=>{
                 return {
-                    maxHeight: '500px',
-                    overflowY: 'hidden'
+                    maxHeight: '650px',
+                    overflowY: 'hidden',
+                    margin: '8px 0'
                 };
             }
         }
@@ -56,10 +58,10 @@ export default {
                 slidesPerView: this.slidesPerView,
                 spaceBetween: this.spaceBetween,
                 loop: this.loop,
-                // navigation: {
-                //     nextEl: '.custom-swiper-button-next',
-                //     prevEl: '.custom-swiper-button-prev'
-                // }
+                navigation: {
+                    nextEl: '.custom-swiper-button-next',
+                    prevEl: '.custom-swiper-button-prev'
+                }
             }
         }
     },
@@ -77,31 +79,23 @@ export default {
     padding: 4px;
     border: 1px solid #eee;
     cursor: pointer;
+    transition: ease-in-out 300ms border-color;
 }
 .swiper-img:hover {
-    border: 1px solid #000;
+    border-color: #000;
 }
-/* .custom-swiper-button-prev, .custom-swiper-button-next{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
+.custom-swiper-button-prev, .custom-swiper-button-next{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
     text-align: center;
     background-color: #ffffff;
     color: #333;
     transition: opacity 300ms ease-in-out, background-color 300ms ease-in-out, color 300ms ease-in-out;
-}
-.custom-swiper-button-prev{
-    left: 0;
-}
-.custom-swiper-button-next{
-    right: 0;
+    cursor: pointer;
 }
 .custom-swiper-button-prev:hover, .custom-swiper-button-next:hover{
     background: #c1a446;
     color: #fff;
-} */
+}
 </style>

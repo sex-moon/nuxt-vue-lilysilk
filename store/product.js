@@ -18,6 +18,7 @@ export const mutations = {
         }
 
         if(info.reviews){
+            info.review = {rating: info.reviews.rating, total: info.reviews.list.total};
             this.commit("product/setProductReviews", info.reviews);
             delete info.reviews;
         }
